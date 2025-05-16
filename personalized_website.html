@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash Sharma | AI/ML Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="a" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23a)"/></svg>');
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            border: 4px solid rgba(255,255,255,0.2);
+        }
+        
+        .name {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 15px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 0;
+        }
+        
+        .section {
+            padding: 50px 40px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #3498db;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        /* Education & Experience */
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: #3498db;
+            border-radius: 50%;
+        }
+        
+        .timeline-date {
+            color: #7f8c8d;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 5px 0;
+        }
+        
+        .timeline-subtitle {
+            color: #3498db;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-description {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-features {
+            list-style: none;
+            margin: 10px 0;
+        }
+        
+        .timeline-features li {
+            padding: 5px 0;
+            color: #666;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .timeline-features li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+        
+        /* Publications */
+        .publication-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .publication-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .publication-venue {
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .publication-description {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .publication-focus {
+            color: #7f8c8d;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .skill-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .skill-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .skill-list {
+            color: #555;
+            font-size: 14px;
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .project-tech {
+            color: #3498db;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .project-description {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .cert-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .cert-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .cert-issuer {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .footer h3 {
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .name {
+                font-size: 32px;
+            }
+            
+            .title {
+                font-size: 18px;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* New personalized banner styles */
+        .personalized-banner {
+            background: linear-gradient(135deg, #27ae60 0%, #2980b9 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .personalized-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="b" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23b)"/></svg>');
+            z-index: 1;
+        }
+        
+        .personalized-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .radiance-section {
+            background: linear-gradient(to right, #f1f9ff, #e6f7ff);
+            border-left: 5px solid #2980b9;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        .radiance-title {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .collaboration-item {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .collab-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .collab-description {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .synergy-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .synergy-list li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .synergy-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Personalized Banner for Rakesh Jaiswal -->
+        <div class="personalized-banner">
+            <div class="personalized-content">
+                <strong>Custom Portfolio Prepared for Mr. Rakesh Jaiswal, Senior Consultant of Radiance Solutions</strong>
+                <p style="margin-top: 10px; font-size: 16px;">Exploring the potential synergy between AI/ML expertise and your innovative digital solutions</p>
+            </div>
+        </div>
+        
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="profile-image">YS</div>
+                <h1 class="name">Yash Sharma</h1>
+                <p class="title">AI/ML Engineer & Automation Specialist</p>
+                <div class="contact-info">
+                    <a href="tel:+918287590509" class="contact-item">📞 +91-8287590509</a>
+                    <a href="mailto:yashsharma4976@gmail.com" class="contact-item">✉️ yashsharma4976@gmail.com</a>
+                    <a href="https://linkedin.com/in/sharyash" class="contact-item">💼 LinkedIn</a>
+                    <a href="https://ieeexplore.ieee.org/author/37090092375" class="contact-item">📚 IEEE Profile</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Personalized Radiance Solutions Section -->
+            <section class="section">
+                <div class="radiance-section">
+                    <h2 class="radiance-title">Potential Collaboration with Radiance Solutions</h2>
+                    <p style="margin-bottom: 20px;">Dear Mr. Rakesh Jaiswal, I'm excited to present how my expertise in AI/ML engineering and automation can complement Radiance Solutions' innovative digital services.</p>
+                    
+                    <div class="collaboration-item">
+                        <h3 class="collab-title">AI Enhancement for Radiance Solutions' Digital Services</h3>
+                        <p class="collab-description">After reviewing Radiance Solutions' impressive portfolio at radiancesolution.com, I've identified several areas where my AI/ML expertise could add significant value to your existing offerings:</p>
+                        <ul class="synergy-list">
+                            <li>Integration of predictive analytics into your Digital Marketing solutions</li>
+                            <li>AI-powered automation for your Web Development workflows</li>
+                            <li>Building ETL Data Solutions</li>
+                            <li>Machine learning algorithms to enhance your App Development capabilities</li>
+                            <li>Data mining techniques to generate actionable insights from your clients' data</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="collaboration-item">
+                        <h3 class="collab-title">Why I Makes Sense</h3>
+                        <p class="collab-description">As the Managing Partner and Senior Consultant of Radiance Solutions, you've built an impressive digital services company. My background in automation and AI/ML development creates natural synergies:</p>
+                        <ul class="synergy-list">
+                            <li>My automation expertise (70% reduction in manual operations at NIIT) can streamline your client delivery processes</li>
+                            <li>My ML research background brings cutting-edge techniques to your innovative solutions</li>
+                            <li>Combined strengths would position Radiance Solutions at the forefront of AI-enhanced/Data digital services</li>
+                        </ul>
+                    </div>
+                    
+                    <p style="text-align: center; margin-top: 25px; font-weight: 500; color: #2c3e50;">I look forward to discussing how we might collaborate to bring next-generation solutions to Radiance Solutions' clients.</p>
+                </div>
+            </section>
+            
+            <!-- About Section -->
+            <section class="section">
+                <h2 class="section-title">About</h2>
+                <div class="about-content">
+                    <p>Passionate AI/ML Engineer with a proven track record of developing intelligent automation solutions and conducting cutting-edge research. Currently working as an Automation Engineer at NIIT Ltd., where I've successfully reduced manual operational load by 70% across major client operations including Airbus, Boeing, and Rolls Royce.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">IEEE Publications</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Citations</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Certifications</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">8.21</span>
+                            <span class="stat-label">CGPA</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - 2025</div>
+                    <div class="timeline-title">Bachelor of Engineering (B.E)</div>
+                    <div class="timeline-subtitle">Computer Science & Engineering (AI & ML)</div>
+                    <div class="timeline-description">Chandigarh University</div>
+                    <div class="timeline-description">CGPA: 8.21/10</div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2025 - Present</div>
+                    <div class="timeline-title">Automation Engineer</div>
+                    <div class="timeline-subtitle">NIIT Ltd. (Salesforce SFDC)</div>
+                    <div class="timeline-description">Developing robust automation scripts and ETL pipelines for global enterprises</div>
+                    <ul class="timeline-features">
+                        <li>Reduced manual operational load by 70% through Python & Selenium automation</li>
+                        <li>Engineered ETL pipelines using Pentaho Data Integration (PDI)</li>
+                        <li>Collaborated with major clients: Airbus, Boeing, Rolls Royce, Shell, Unilever</li>
+                        <li>Automated file processing, learning session creation, and data validation workflows</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">July 2021</div>
+                    <div class="timeline-title">Trainee</div>
+                    <div class="timeline-subtitle">ISRO (Indian Space Research Organisation)</div>
+                    <div class="timeline-description">Remote Sensing and GIS Applications Program</div>
+                    <ul class="timeline-features">
+                        <li>Trained in Geographical Information Systems (GIS) and Remote Sensing</li>
+                        <li>Learned satellite data applications in agriculture and urban planning</li>
+                        <li>Gained exposure to ISRO's spatial data tools</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">June 2021 - July 2021</div>
+                    <div class="timeline-title">Cybersecurity Intern</div>
+                    <div class="timeline-subtitle">Hakershala</div>
+                    <div class="timeline-description">Penetration Testing & Ethical Hacking</div>
+                    <ul class="timeline-features">
+                        <li>Performed SQL Injection, Brute Force attacks, and vulnerability assessments</li>
+                        <li>Completed CTF challenges and QA audits using Agile methodology</li>
+                        <li>Gained expertise in Google Dorking and networking fundamentals</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Research Section -->
+            <section class="section">
+                <h2 class="section-title">Research & Publications</h2>
+                
+                <div class="publication-item">
+                    <div class="publication-title">PneumoAI: Redefining Accuracy in Pneumonia Detection using Advanced Machine Learning</div>
+                    <div class="publication-venue">IATMSI 2024</div>
+                    <div class="publication-description">Developed a high-accuracy pneumonia detection model using CNNs and X-ray image analysis. Successfully referenced by 15+ research papers.</div>
+                    <div class="publication-focus">Focus: CNNs, Medical Image Processing, Diagnostic AI</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">Data Mining Techniques in Financial Fraud Detection</div>
+                    <div class="publication-venue">ICAC2N 2024</div>
+                    <div class="publication-description">Applied clustering and classification techniques to enhance fraud detection in real-time financial systems.</div>
+                    <div class="publication-focus">Focus: K-Means Clustering, Decision Trees, Anomaly Detection</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">Trackbot's Journey Revolution: Smart Travel</div>
+                    <div class="publication-venue">ICSD 2024</div>
+                    <div class="publication-description">Developed an AI-based assistant that analyzes user behavior and preferences to optimize travel planning.</div>
+                    <div class="publication-focus">Focus: Automation, Behavioral AI, Smart Itinerary Generation</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">Multiple Flying Object Detection using AlexNet for Aerial Surveillance</div>
+                    <div class="publication-venue">ICCCNT 2023</div>
+                    <div class="publication-description">Developed an object detection system using AlexNet for aerial drone surveillance.</div>
+                    <div class="publication-focus">Focus: Deep Learning, Object Detection, Real-time Vision Processing</div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <div class="skill-icon">💻</div>
+                        <div class="skill-title">Programming</div>
+                        <div class="skill-list">Python • C++ • SQL</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-icon">🤖</div>
+                        <div class="skill-title">AI/ML</div>
+                        <div class="skill-list">Pandas • NumPy • Scikit-learn<br>OpenCV • Tensorflow</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-icon">⚙️</div>
+                        <div class="skill-title">Automation</div>
+                        <div class="skill-list">Selenium • Pentaho PDI<br>Task Scheduler • ETL Pipelines</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-icon">☁️</div>
+                        <div class="skill-title">Cloud & Tools</div>
+                        <div class="skill-list">Google Cloud • Azure<br>Git • Jupyter • Salesforce</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="section">
+                <h2 class="section-title">Projects & Technical Work</h2>
+                
+                <!-- Academic/Personal Projects -->
+                <h3 style="color: #2c3e50; margin-bottom: 20px; font-size: 24px; font-weight: 500;">Academic & Research Projects</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-title">Lane Detection System</div>
+                        <div class="project-tech">Python • OpenCV • Canny Edge Detection • Hough Transform</div>
+                        <div class="project-description">
+                            Real-time lane detection system for autonomous driving applications. As Team Leader, I developed core algorithms and led deployment.
+                            <div style="margin-top: 10px;">
+                                <strong>Techniques:</strong> Canny Edge Detection, Hough Transform<br>
+                                <strong>Role:</strong> Team Leader – Developed core algorithms and led deployment
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <a href="https://github.com/yashsharma2003/LaneDetection.git" style="color: #3498db; text-decoration: none;">🔗 GitHub Repository</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">Bhoomi Sahayata – Soil & Crop Advisory Platform</div>
+                        <div class="project-tech">Python • Pandas • GIS • Machine Learning • Predictive Analytics</div>
+                        <div class="project-description">
+                            Soil & crop advisory platform using predictive modeling to assist farmers with data-driven decisions on soil health.
+                            <div style="margin-top: 10px;">
+                                <strong>Role:</strong> Data Analyst and Team Lead<br>
+                                <strong>Objective:</strong> Assist farmers with predictive analytics on soil health
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">Product Recommendation System (AIML)</div>
+                        <div class="project-tech">Python • Neural Networks • Matrix Factorization • Collaborative Filtering</div>
+                        <div class="project-description">
+                            AI-powered recommendation engine implementing both user-based and item-based filtering approaches.
+                            <div style="margin-top: 10px;">
+                                <strong>Features:</strong><br>
+                                • Neural networks for pattern recognition<br>
+                                • Matrix factorization for dimensionality reduction<br>
+                                • User-based and item-based filtering modules
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">Askbay Community Platform</div>
+                        <div class="project-tech">Python • Flask • AIML • User-based Filtering</div>
+                        <div class="project-description">
+                            Open platform for community-driven problem-solving with intelligent chat features and personalized content delivery.
+                            <div style="margin-top: 10px;">
+                                <strong>Features:</strong><br>
+                                • User-based and item-based filtering modules<br>
+                                • Real-time problem-solving chat interface<br>
+                                • Personalized content recommendations
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <a href="https://github.com/yashsharma2003/Askbay" style="color: #3498db; text-decoration: none;">🔗 GitHub Repository</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">Personality Inference System</div>
+                        <div class="project-tech">Python • Behavioral Analysis • ML • Pattern Recognition</div>
+                        <div class="project-description">
+                            Advanced system utilizing cutting-edge algorithms to analyze user behaviors and communication patterns for personality trait categorization.
+                            <div style="margin-top: 10px;">
+                                <strong>Capabilities:</strong><br>
+                                • Personality trait categorization<br>
+                                • Personalized content delivery<br>
+                                • Targeted marketing insights
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Freelance Projects -->
+                <h3 style="color: #2c3e50; margin: 40px 0 20px 0; font-size: 24px; font-weight: 500;">Freelance & Consulting Work</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-title">RB Group - ERP Consultancy</div>
+                        <div class="project-tech">ERP Systems • Database Design • AI Dashboard • Data Analysis</div>
+                        <div class="project-description">
+                            <strong>Current Work:</strong> Providing end-to-end ERP consultancy services including:
+                            <div style="margin-top: 10px;">
+                                • Data system architecture and design<br>
+                                • ER diagram development for current systems<br>
+                                • AI-powered dashboard for enhanced firm management<br>
+                                • Analytics for better business understanding
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">Feastwala.com - Full Stack Development</div>
+                        <div class="project-tech">Web Development • Software Solutions • Full Stack</div>
+                        <div class="project-description">
+                            Provided comprehensive end-to-end software and web solutions for Feastwala, a food service platform.
+                            <div style="margin-top: 10px;">
+                                <strong>Services:</strong><br>
+                                • Complete web application development<br>
+                                • Backend system architecture<br>
+                                • Frontend user experience design
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <a href="https://feastwala.com/" style="color: #3498db; text-decoration: none;">🔗 Visit Website</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">HOSTSAC - AI/ML Consultancy</div>
+                        <div class="project-tech">AI/ML Consulting • Client Solutions • Technical Advisory</div>
+                        <div class="project-description">
+                            Freelance AI and ML consultant providing specialized technical expertise for various client projects.
+                            <div style="margin-top: 10px;">
+                                <strong>Services:</strong><br>
+                                • Machine learning model development<br>
+                                • AI solution architecture<br>
+                                • Technical consulting for ML implementations
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">Chatbot Analysis Project</div>
+                        <div class="project-tech">Chatbot Technology • Comparative Analysis • NLP</div>
+                        <div class="project-description">
+                            Comprehensive comparison and analysis of chatbot technologies for a US-based firm.
+                            <div style="margin-top: 10px;">
+                                <strong>Scope:</strong><br>
+                                • Detailed chatbot performance analysis<br>
+                                • Comparative evaluation of different platforms<br>
+                                • Technical recommendations report<br>
+                                <em>(Client name confidential per NDA)</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications Section -->
+            <section class="section">
+                <h2 class="section-title">Certifications</h2>
+                
+                <!-- Google Cloud Certifications -->
+                <h3 style="color: #2c3e50; margin-bottom: 20px; font-size: 24px; font-weight: 500;">Google Cloud</h3>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-name">Advanced Machine Learning on Google Cloud Specialization</div>
+                        <div class="cert-issuer">Google Cloud</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: JYN7SWG9CFCR</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Computer Vision Fundamentals</div>
+                        <div class="cert-issuer">Google Cloud</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: VXBCLP2DGUWS</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Natural Language Processing</div>
+                        <div class="cert-issuer">Google Cloud</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: L3ZHWRRGVALL</div>
+                    </div>
+                </div>
+                
+                <!-- IBM Certifications -->
+                <h3 style="color: #2c3e50; margin: 40px 0 20px 0; font-size: 24px; font-weight: 500;">IBM</h3>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-name">Introduction to Data Science</div>
+                        <div class="cert-issuer">IBM</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: DCXWFUBW6ZAE</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Data Science Methodology</div>
+                        <div class="cert-issuer">IBM</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: ZB6U74D7A87H</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Databases and SQL for Data Science with Python</div>
+                        <div class="cert-issuer">IBM</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: 4QLE4ZX6893B</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Tools for Data Science</div>
+                        <div class="cert-issuer">IBM</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: 736ER82B6YA3</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">What is Data Science?</div>
+                        <div class="cert-issuer">IBM</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: WR6D6GP3FPSA</div>
+                    </div>
+                </div>
+                
+                <!-- University of Minnesota Certifications -->
+                <h3 style="color: #2c3e50; margin: 40px 0 20px 0; font-size: 24px; font-weight: 500;">University of Minnesota</h3>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-name">Analytics for Decision Making</div>
+                        <div class="cert-issuer">University of Minnesota</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: JL9QECJWXGUR</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Advanced Models for Decision Making</div>
+                        <div class="cert-issuer">University of Minnesota</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: SM2AE4GEK6VG</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Optimization for Decision Making</div>
+                        <div class="cert-issuer">University of Minnesota</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: 3GHYB8KL7GMY</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Simulation Models for Decision Making</div>
+                        <div class="cert-issuer">University of Minnesota</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: PTTRBP58Y7GU</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Introduction to Predictive Modeling</div>
+                        <div class="cert-issuer">University of Minnesota</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: SVYL76VYSF64</div>
+                    </div>
+                </div>
+                
+                <!-- Other Notable Courses -->
+                <h3 style="color: #2c3e50; margin: 40px 0 20px 0; font-size: 24px; font-weight: 500;">Other Notable Courses</h3>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-name">Introduction to Psychology</div>
+                        <div class="cert-issuer">Yale University</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: YRFWCLVXRW5X</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Successful Negotiation</div>
+                        <div class="cert-issuer">University of Michigan</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">ID: PXCPXCYUPF5A</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Google Play Academy</div>
+                        <div class="cert-issuer">Google</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">Issued: Aug 2023</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Microsoft Certified Azure Administrator Associate</div>
+                        <div class="cert-issuer">Microsoft</div>
+                        <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">Issued: Jan 2023</div>
+                    </div>
+                </div>
+                
+                <!-- Virtual Job Simulations -->
+                <h3 style="color: #2c3e50; margin: 40px 0 20px 0; font-size: 24px; font-weight: 500;">Virtual Job Simulations (Forage)</h3>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-name">Software Engineering</div>
+                        <div class="cert-issuer">J.P. Morgan</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Development & Advanced Engineering</div>
+                        <div class="cert-issuer">Accenture</div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-name">Data Analytics and Visualization</div>
+                        <div class="cert-issuer">Accenture</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <h3>Let's Connect</h3>
+            <p>Open to freelance projects, research collaborations, and innovative opportunities in AI/ML and automation.</p>
+            <div style="margin-top: 20px;">
+                <a href="mailto:yashsharma4976@gmail.com" style="color: #3498db; text-decoration: none; margin: 0 10px;">Email</a>
+                <a href="https://linkedin.com/in/sharyash" style="color: #3498db; text-decoration: none; margin: 0 10px;">LinkedIn</a>
+                <a href="https://github.com/yashsharma2003" style="color: #3498db; text-decoration: none; margin: 0 10px;">GitHub</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
